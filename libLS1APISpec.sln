@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libLS1APISpec", "LS1APISpec\libLS1APISpec.csproj", "{73F871BC-4B3A-4A54-8AB3-C7979D159DBC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LS1ReferenceExporter", "LS1ReferenceExporter\LS1ReferenceExporter.csproj", "{4226EE53-B4C9-4ED1-AA12-45AE5F0EAA68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73F871BC-4B3A-4A54-8AB3-C7979D159DBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F871BC-4B3A-4A54-8AB3-C7979D159DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F871BC-4B3A-4A54-8AB3-C7979D159DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F871BC-4B3A-4A54-8AB3-C7979D159DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4226EE53-B4C9-4ED1-AA12-45AE5F0EAA68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4226EE53-B4C9-4ED1-AA12-45AE5F0EAA68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4226EE53-B4C9-4ED1-AA12-45AE5F0EAA68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4226EE53-B4C9-4ED1-AA12-45AE5F0EAA68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A137927D-B7B5-4EE8-8821-417A898DDCD0}
+	EndGlobalSection
+EndGlobal
