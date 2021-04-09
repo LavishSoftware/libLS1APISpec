@@ -27,22 +27,22 @@ namespace LS1ReferenceExporter
 
         private void buttonJMBSession_Click(object sender, RoutedEventArgs e)
         {
-            App.BuildPlatformAPISpec(LS1Platform.JMBSession, "LS1APISpec-JMB-Session.md");
+            App.BuildPlatformAPISpec(LS1Platform.JMBSession, "JMB-Session.md");
         }
 
         private void buttonJMBUplink_Click(object sender, RoutedEventArgs e)
         {
-            App.BuildPlatformAPISpec(LS1Platform.JMBUplink, "LS1APISpec-JMB-Uplink.md");
+            App.BuildPlatformAPISpec(LS1Platform.JMBUplink, "JMB-Uplink.md");
         }
 
         private void buttonISSession_Click(object sender, RoutedEventArgs e)
         {
-            App.BuildPlatformAPISpec(LS1Platform.ISSession, "LS1APISpec-IS-Session.md");
+            App.BuildPlatformAPISpec(LS1Platform.ISSession, "IS-Session.md");
         }
 
         private void buttonISUplink_Click(object sender, RoutedEventArgs e)
         {
-            App.BuildPlatformAPISpec(LS1Platform.ISUplink, "LS1APISpec-IS-Uplink.md");
+            App.BuildPlatformAPISpec(LS1Platform.ISUplink, "IS-Uplink.md");
         }
     }
 }

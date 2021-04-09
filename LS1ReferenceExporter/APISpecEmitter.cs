@@ -122,7 +122,7 @@ namespace LS1ReferenceExporter
             {
                 if (output.Length > 0)
                     output += " ";
-                output += string.Format("[{0}](#Type:%20{0})", parameter.Type);
+                output += string.Format("[{0}](#type-{0})", parameter.Type);
             }
 
             if (!string.IsNullOrEmpty(parameter.Name))
@@ -234,7 +234,7 @@ namespace LS1ReferenceExporter
 
             if (form.Parameters == null || form.Parameters.Count == 0)
             {                
-                EmitLine(string.Format("- [{1}](#Type:%20{1}) `{0}`{2}",tlo.Name,form.Type,useDescription));
+                EmitLine(string.Format("- [{1}](#type-{1}) `{0}`{2}",tlo.Name,form.Type,useDescription));
             }
             else
             {
@@ -247,7 +247,7 @@ namespace LS1ReferenceExporter
                     parameters += EmitDeclaration(p, " `,` ", false);
                 }
 
-                EmitLine(string.Format("- [{2}](#Type:%20{2}) `{0}[` {1} `]`{3}", tlo.Name, parameters, form.Type,useDescription));
+                EmitLine(string.Format("- [{2}](#type-{2}) `{0}[` {1} `]`{3}", tlo.Name, parameters, form.Type,useDescription));
             }
 
 #if MINIMUM_BUILD
@@ -353,7 +353,7 @@ namespace LS1ReferenceExporter
             string useType = "???";
             if (!string.IsNullOrEmpty(form.Type))
             {
-                useType = string.Format("[{0}](#Type:%20{0})", form.Type);
+                useType = string.Format("[{0}](#type-{0})", form.Type);
             }
 
 
@@ -404,7 +404,7 @@ namespace LS1ReferenceExporter
             string useType = "???";
             if (!string.IsNullOrEmpty(form.Type))
             {
-                useType = string.Format("[{0}](#Type:%20{0})",form.Type);
+                useType = string.Format("[{0}](#type-{0})",form.Type);
             }
 
             if (form.Parameters == null || form.Parameters.Count == 0)
@@ -517,12 +517,12 @@ namespace LS1ReferenceExporter
 
             if (!string.IsNullOrEmpty(t.BaseType))
             {
-                EmitLine(string.Format("- Base Type: [{0}](#Type:%20{0})",t.BaseType));
+                EmitLine(string.Format("- Base Type: [{0}](#type-{0})",t.BaseType));
             }
 
             if (!t.Persistent)
             {
-                EmitLine("- Persistent: No ([weakref](#Type:%20weakref) not supported)");
+                EmitLine("- Persistent: No ([weakref](#type-weakref) not supported)");
             }
 
             if (t.Restricted)
