@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace LS1ReferenceExporter
 {
@@ -20,13 +19,17 @@ namespace LS1ReferenceExporter
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public class App
     {
 
-        protected override void OnStartup(StartupEventArgs e)
+        public static void Main()
         {
             APISpecs.Instance.Load();
-            base.OnStartup(e);
+
+            BuildPlatformAPISpec(LS1Platform.JMBSession, "JMB-Session.md");
+            BuildPlatformAPISpec(LS1Platform.JMBUplink, "JMB-Uplink.md");
+            BuildPlatformAPISpec(LS1Platform.ISSession, "IS-Session.md");
+            BuildPlatformAPISpec(LS1Platform.ISUplink, "IS-Uplink.md");
         }
 
         public static string BuildPlatformAPISpec(LS1Platform platform)

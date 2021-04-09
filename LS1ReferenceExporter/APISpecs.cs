@@ -30,18 +30,23 @@ namespace LS1ReferenceExporter
             return LS1APISpec.GetFromFile(System.IO.Path.Combine(SpecFolder,filename));
         }
 
+        LS1APISpec DownloadSpec(string filename)
+        {
+            return LS1APISpec.GetFromURL(string.Format("https://raw.githubusercontent.com/LavishSoftware/LS1-Platform-Specifications/master/{0}",filename));
+        }
+
         public void Load()
         {
             //SpecFolder = "D:\\Lavish\\vscode\\apispec";
             SpecFolder = ".";
 
-            LavishScript = ReadSpec("LavishScript.json");
-            LavishGUI2 = ReadSpec("LavishGUI2.json");
-            IS_Uplink = ReadSpec("IS-Uplink.json");
-            IS_Kernel = ReadSpec("IS-Kernel.json");
-            IS_Session = ReadSpec("IS-Session.json");
-            JMB_Kernel = ReadSpec("JMB-Kernel.json");
-            JMB_Session = ReadSpec("JMB-Session.json");
+            LavishScript = DownloadSpec("LavishScript.json");
+            LavishGUI2 = DownloadSpec("LavishGUI2.json");
+            IS_Uplink = DownloadSpec("IS-Uplink.json");
+            IS_Kernel = DownloadSpec("IS-Kernel.json");
+            IS_Session = DownloadSpec("IS-Session.json");
+            JMB_Kernel = DownloadSpec("JMB-Kernel.json");
+            JMB_Session = DownloadSpec("JMB-Session.json");
         }
 
         static APISpecs _Instance;

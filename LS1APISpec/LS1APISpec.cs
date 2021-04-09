@@ -27,6 +27,19 @@ namespace libLS1APISpec
             return spec;
         }
 
+        public static LS1APISpec GetFromURL(string url)
+        {
+            JObject jo = Utils.JObjectFromURL(url);
+            if (jo == null)
+                return null;
+
+            LS1APISpec spec = new LS1APISpec();
+            if (!spec.FromJObject(jo))
+                return null;
+
+            return spec;
+        }
+
         public void WriteToFile(string filename)
         {
             JObject jo = GetJObject();

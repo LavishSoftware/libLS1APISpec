@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Net;
 using System.Text;
 
 namespace libLS1APISpec
@@ -136,6 +137,27 @@ namespace libLS1APISpec
             }
             return jo;
         }
+
+        public static JObject JObjectFromURL(string url)
+        {
+            JObject jo = null;
+            try
+            {
+                string text = string.Empty;
+                using (WebClient wc = new WebClient())
+                {
+
+                    text = wc.DownloadString(url);
+                }
+                jo = JObject.Parse(text);
+            }
+            catch
+            {
+
+            }
+            return jo;
+        }
+
 
 
         public static T GetValue<T>(this KeyValuePair<string, JToken> kvp, T defaultValue = default(T))
