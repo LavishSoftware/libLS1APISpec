@@ -520,6 +520,11 @@ namespace LS1ReferenceExporter
                 EmitLine(string.Format("- Base Type: [{0}](#type-{0})",t.BaseType));
             }
 
+            if (t.Static)
+            {
+                EmitLine("- Static: Yes (All Members/Methods also work as Static Members/Methods)");
+            }
+
             if (!t.Persistent)
             {
                 EmitLine("- Persistent: No ([weakref](#type-weakref) not supported)");

@@ -55,6 +55,8 @@ namespace libLS1APISpec
 
         public bool UsesSubType { get; set; }
 
+        public bool Static { get; set; }
+
         public ObservableCollection<LS1TypeMember> Members { get; set; }
 
         public ObservableCollection<LS1TypeMethod> Methods { get; set; }
@@ -87,6 +89,7 @@ namespace libLS1APISpec
             StaticMembers = jo.ToObservableCollection<LS1TypeMember>("staticMembers");
             StaticMethods = jo.ToObservableCollection<LS1TypeMethod>("staticMethods");
             Index = LS1TypeIndex.FromJObject<LS1TypeIndex>(jo,"index");
+            Static = jo.GetValueBool("static");
 
             if (Members != null)
             {
@@ -139,6 +142,9 @@ namespace libLS1APISpec
 
             if (UsesSubType)
                 jo.Add("usesSubType", UsesSubType);
+
+            if (Static)
+                jo.Add("static", Static);
 
             if (Members != null && Members.Count > 0)
                 jo.AddObject("members", Members);
