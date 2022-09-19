@@ -584,6 +584,34 @@ namespace LS1ReferenceExporter
                 EmitLine("none.");
             }
 
+            if (t.StaticMembers != null && t.StaticMembers.Count > 0)
+            {
+                EmitLine("### Static Members");
+                foreach (var tm in t.StaticMembers)
+                {
+                    Emit(t, tm);
+                }
+                EmitLine("");
+            }
+            else
+            {
+//                EmitLine("none.");
+            }
+
+            if (t.StaticMethods != null && t.StaticMethods.Count > 0)
+            {
+                EmitLine("### Static Methods");
+                foreach (var tm in t.StaticMethods)
+                {
+                    Emit(t, tm);
+                }
+                EmitLine("");
+            }
+            else
+            {
+//                EmitLine("none.");
+            }
+
             EmitLine("");
             EmitLine("");
         }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.ObjectModel;
 
@@ -58,6 +59,10 @@ namespace libLS1APISpec
 
         public ObservableCollection<LS1TypeMethod> Methods { get; set; }
 
+        public ObservableCollection<LS1TypeMember> StaticMembers { get; set; }
+
+        public ObservableCollection<LS1TypeMethod> StaticMethods { get; set; }
+
         public LS1TypeIndex Index { get; set; }
 
         public LS1TypeInitializer Initializer { get; set; }
@@ -79,7 +84,31 @@ namespace libLS1APISpec
             UsesSubType = jo.GetValueBool("usesSubType");
             Members = jo.ToObservableCollection<LS1TypeMember>("members");
             Methods = jo.ToObservableCollection<LS1TypeMethod>("methods");
+            StaticMembers = jo.ToObservableCollection<LS1TypeMember>("staticMembers");
+            StaticMethods = jo.ToObservableCollection<LS1TypeMethod>("staticMethods");
             Index = LS1TypeIndex.FromJObject<LS1TypeIndex>(jo,"index");
+
+            if (Members != null)
+            {
+                foreach (LS1TypeMember m in Members)
+                    m.Static = false;
+            }
+            if (StaticMembers != null)
+            {
+                foreach (LS1TypeMember m in StaticMembers)
+                    m.Static = true;
+            }
+
+            if (Methods != null)
+            {
+                foreach (LS1TypeMethod m in Methods)
+                    m.Static = false;
+            }
+            if (StaticMethods != null)
+            {
+                foreach (LS1TypeMethod m in StaticMethods)
+                    m.Static = true;
+            }
 
             Initializer = LS1TypeInitializer.FromJObject<LS1TypeInitializer>(jo, "initializer");
 
@@ -116,6 +145,12 @@ namespace libLS1APISpec
 
             if (Methods != null && Methods.Count > 0)
                 jo.AddObject("methods", Methods);
+
+            if (StaticMembers != null && StaticMembers.Count > 0)
+                jo.AddObject("staticMembers", StaticMembers);
+
+            if (StaticMethods != null && StaticMethods.Count > 0)
+                jo.AddObject("staticMethods", StaticMethods);
 
             if (Index != null)
                 jo.Add("index", Index);

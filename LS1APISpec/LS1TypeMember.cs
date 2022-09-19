@@ -56,12 +56,15 @@ namespace libLS1APISpec
         public string Category { get; set; }
         public bool Restricted { get; set; }
 
+        public bool Static { get; set; }
+
         public override bool FromJObject(JObject jo)
         {
             Name = jo.GetValueString("name");
             Forms = jo.ToObservableCollection<LS1TypeMemberForm>("forms");
             Category = jo.GetValueString("category");
             Restricted = jo.GetValueBool("restricted");
+            Static = jo.GetValueBool("static");
             return true;
         }
 
@@ -80,6 +83,9 @@ namespace libLS1APISpec
 
             if (Forms != null && Forms.Count > 0)
                 jo.Add("forms", Forms);
+
+            if (Static)
+                jo.Add("static", Static);
             return jo;
         }
     }
